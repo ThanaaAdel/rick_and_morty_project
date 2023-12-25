@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_project/constants/colors.dart';
-import 'package:rick_and_morty_project/data/models/character_model.dart';
+import '../../constants/colors.dart';
+import '../../data/models/character_model.dart';
 
 class CharacterDetailsScreen extends StatelessWidget {
   const CharacterDetailsScreen({super.key, required this.character});

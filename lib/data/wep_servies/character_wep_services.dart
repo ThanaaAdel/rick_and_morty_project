@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty_project/constants/strings.dart';
+import '../../constants/strings.dart';
 
 class CharacterWebServices {
   late Dio dio;

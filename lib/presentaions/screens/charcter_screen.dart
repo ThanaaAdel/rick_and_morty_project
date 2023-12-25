@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_offline/flutter_offline.dart';
-import 'package:rick_and_morty_project/business_logic/charater_cubit.dart';
-import 'package:rick_and_morty_project/constants/colors.dart';
-import 'package:rick_and_morty_project/data/models/character_model.dart';
-import 'package:rick_and_morty_project/presentaions/widgets/character_item.dart';
+import '../../business_logic/charater_cubit.dart';
+import '../../constants/colors.dart';
+import '../../data/models/character_model.dart';
+import '../widgets/character_item.dart';
 
 class CharacterScreen extends StatefulWidget {
   const CharacterScreen({super.key});

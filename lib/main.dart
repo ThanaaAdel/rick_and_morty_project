@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_project/app_router.dart';
+import 'app_router.dart';
 
 void main() {
   runApp( BreakinBadApp(appRouter: AppRouter(),));

@@ -1,4 +1,4 @@
-import 'package:rick_and_morty_project/data/wep_servies/character_wep_services.dart';
+import '../wep_servies/character_wep_services.dart';
 
 import '../models/character_model.dart';
 

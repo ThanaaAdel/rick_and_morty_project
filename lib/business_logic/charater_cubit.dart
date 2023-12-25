@@ -1,7 +1,7 @@
 
 import 'package:bloc/bloc.dart';
-import 'package:rick_and_morty_project/data/models/character_model.dart';
-import 'package:rick_and_morty_project/data/repository/character_repository.dart';
+import '../data/models/character_model.dart';
+import '../data/repository/character_repository.dart';
 
 part 'charater_state.dart';
 

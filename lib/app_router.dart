@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rick_and_morty_project/business_logic/charater_cubit.dart';
-import 'package:rick_and_morty_project/constants/strings.dart';
-import 'package:rick_and_morty_project/data/models/character_model.dart';
-import 'package:rick_and_morty_project/data/repository/character_repository.dart';
-import 'package:rick_and_morty_project/data/wep_servies/character_wep_services.dart';
-import 'package:rick_and_morty_project/presentaions/screens/character_details_screen.dart';
-import 'package:rick_and_morty_project/presentaions/screens/charcter_screen.dart';
+import 'business_logic/charater_cubit.dart';
+import 'constants/strings.dart';
+import 'data/models/character_model.dart';
+import 'data/repository/character_repository.dart';
+import 'data/wep_servies/character_wep_services.dart';
+import 'presentaions/screens/character_details_screen.dart';
+import 'presentaions/screens/charcter_screen.dart';
 
 class AppRouter {
   late CharacterRepository characterRepository;
