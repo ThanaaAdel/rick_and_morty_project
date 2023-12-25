@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_offline/flutter_offline.dart';
 import 'package:rick_and_morty_project/business_logic/charater_cubit.dart';
 import 'package:rick_and_morty_project/constants/colors.dart';
 import 'package:rick_and_morty_project/data/models/character_model.dart';
@@ -26,7 +27,7 @@ class _CharacterScreenState extends State<CharacterScreen> {
   void addSearchedForItemsToSearchesList(String searchTerm) {
     searchForCharacters = allCharacters
         .where((character) =>
-        character.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+            character.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
         .toList();
     setState(() {});
   }
@@ -107,7 +108,6 @@ class _CharacterScreenState extends State<CharacterScreen> {
         physics: const ClampingScrollPhysics(),
         itemBuilder: (context, index) {
           return CharacterItem(
-
             character: _searchController.text.isEmpty
                 ? allCharacters[index]
                 : searchForCharacters[index],
@@ -160,6 +160,24 @@ class _CharacterScreenState extends State<CharacterScreen> {
     );
   }
 
+  Widget buildNoInternetWidget() {
+    return Center(
+      child: Container(
+          child: Column(
+        children: [
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            'Can\`t connect .. check internet',
+            style: TextStyle(fontSize: 22, color: MyColors.greyColor),
+          ),
+          Image.asset('assets/images/No-image-available.jpg'),
+        ],
+      )),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,7 +190,21 @@ class _CharacterScreenState extends State<CharacterScreen> {
           title: _isSearching ? _buildSearchField() : buildAppBarTitle(),
           actions: _buildAppBarActions(),
           backgroundColor: MyColors.yellowColor),
-      body: buildBlockWidget(),
+      body: OfflineBuilder(
+        connectivityBuilder: (
+          BuildContext context,
+          ConnectivityResult connectivity,
+          Widget child,
+        ) {
+          final bool connected = connectivity != ConnectivityResult.none;
+          if (connected) {
+            return buildBlockWidget();
+          } else {
+            return buildNoInternetWidget();
+          }
+        },
+        child: showProgressIndicator(),
+      ),
     );
   }
 }
